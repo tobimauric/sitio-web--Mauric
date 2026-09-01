@@ -1,0 +1,10 @@
+body { background-color: yellow;} 
+h2 { color: red; }
+.cajaContenedora {background-color: rgb(221, 17, 17); display: inline-block; width:50%;margin: 15px;}
+.cajaIzquierda {background-color: aqua; display: inline-block; width:45%; margin: 30px; box-sizing: border-box;}
+
+.cajaDerecha { background-color: blueviolet; display: block;width: 45%;margin: 30px; box-sizing: border-box;}
+.rojo {background-color: red; display: inline-block; width: 30%; margin: 15%; box-sizing: border-box; padding: 60px; height: 40px; position:absolute; top: 40% ;}
+.azul {background-color: blue; display: block; width: 50%; margin: 15%;box-sizing: border-box ; padding: 80px; height: 50px; position: absolute; top: 30%;}
+.amarillo {background-color: yellowgreen; display: block; width: 50%; margin: 15%; box-sizing: border-box; padding: 30px; height: 15px;position:absolute; top: 20%;; }
+.blanco {background-color: beige; display: block; width: 50%; margin: 15%; box-sizing: border-box ; padding: 20px; height: 10px; position:absolute; top: 70% }

@@ -1,10 +1,398 @@
-body { background-color: yellow;} 
-h2 { color: red; }
-.cajaContenedora {background-color: rgb(221, 17, 17); display: inline-block; width:50%;margin: 15px;}
-.cajaIzquierda {background-color: aqua; display: inline-block; width:45%; margin: 30px; box-sizing: border-box;}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Smooch&display=swap'); 
 
-.cajaDerecha { background-color: blueviolet; display: block;width: 45%;margin: 30px; box-sizing: border-box;}
-.rojo {background-color: red; display: inline-block; width: 30%; margin: 15%; box-sizing: border-box; padding: 60px; height: 40px; position:absolute; top: 40% ;}
-.azul {background-color: blue; display: block; width: 50%; margin: 15%;box-sizing: border-box ; padding: 80px; height: 50px; position: absolute; top: 30%;}
-.amarillo {background-color: yellowgreen; display: block; width: 50%; margin: 15%; box-sizing: border-box; padding: 30px; height: 15px;position:absolute; top: 20%;; }
-.blanco {background-color: beige; display: block; width: 50%; margin: 15%; box-sizing: border-box ; padding: 20px; height: 10px; position:absolute; top: 70% }
+/* Configuración básica y reseteo */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body { 
+    font-family: 'Montserrat', sans-serif;
+    background-color: #0D0D0D;
+    margin: 0;
+    color: #FFFFFF;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* Encabezado y Navegación */
+header {
+    background-color: #0D0D0D;
+    padding: 25px 15px 15px;
+    text-align: center;
+    border-bottom: 1px solid #222222;
+}
+
+h1 { 
+    color: #C9A227;
+    margin: 0;
+    font-family: 'Smooch', cursive;
+    font-size: clamp(2.4rem, 6vw, 3.6rem);
+    line-height: 1.1;
+}
+
+h2 {
+    color: #C9A227;
+    font-size: clamp(1.4rem, 4vw, 1.9rem);
+    margin-bottom: 15px;
+}
+
+nav {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px 25px;
+}
+
+nav li {
+    display: inline-block;
+}
+
+nav a { 
+    color: #FFFFFF;
+    margin: 0;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 6px 12px;
+    transition: color 0.2s ease;
+}
+
+nav a:hover {
+    color: #C9A227;
+}
+
+/* Secciones generales */
+section { 
+    padding: 55px 20px;
+    text-align: center;
+    border-bottom: 1px solid #1a1a1a;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Video Responsivo */
+.video-contenedor {
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto 15px;
+}
+
+.video-responsive {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+    background-color: #000000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    display: block;
+}
+
+/* Botón Ver Más */
+.boton-vermas {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 10px 24px;
+    background-color: #C9A227;
+    color: #0D0D0D;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.boton-vermas:hover {
+    background-color: #e5b92e;
+    transform: scale(1.03);
+}
+
+/* Sección Biografía */
+.bio-texto {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    line-height: 1.75;
+    color: #dddddd;
+    font-size: 1rem;
+}
+
+.bio-texto p {
+    margin-bottom: 16px;
+}
+
+/* Sección Noticias */
+.noticias-lista {
+    max-width: 800px;
+    margin: 30px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    text-align: left;
+}
+
+.noticia-item {
+    background-color: #161616;
+    padding: 20px;
+    border-radius: 6px;
+    border-left: 4px solid #C9A227;
+}
+
+.noticia-item h3 {
+    color: #FFFFFF;
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 1.15rem;
+}
+
+.noticia-item p {
+    color: #bbbbbb;
+    margin: 0;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+/* Sección Tienda */
+.tienda-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1050px;
+    margin: 35px auto 0;
+    text-align: left;
+}
+
+.producto-card {
+    background-color: #161616;
+    border-radius: 8px;
+    border: 1px solid #262626;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.producto-card:hover {
+    transform: translateY(-4px);
+    border-color: #C9A227;
+}
+
+.producto-img-container {
+    width: 100%;
+    height: 220px;
+    background-color: #0d0d0d;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.producto-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.producto-card:hover .producto-img {
+    transform: scale(1.05);
+}
+
+.producto-info {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.etiqueta-categoria {
+    display: inline-block;
+    font-size: 0.75rem;
+    color: #999999;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+
+.producto-info h3 {
+    color: #FFFFFF;
+    margin: 0 0 8px;
+    font-size: 1.1rem;
+}
+
+.producto-info p {
+    color: #bbbbbb;
+    margin: 0 0 14px;
+    line-height: 1.45;
+    font-size: 0.88rem;
+    flex-grow: 1;
+}
+
+.precio {
+    color: #C9A227;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-top: auto;
+    padding-top: 8px;
+    border-top: 1px solid #222222;
+}
+
+/* Explora el sitio */
+.explora-contenedor {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.explora-card {
+    background-color: #161616;
+    padding: 22px;
+    border-radius: 6px;
+    width: 240px;
+    text-align: center;
+    border: 1px solid #222222;
+}
+
+.explora-card h3 {
+    color: #C9A227;
+    margin-top: 0;
+}
+
+.explora-card p {
+    color: #bbbbbb;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.link-seccion {
+    color: #C9A227;
+    text-decoration: underline;
+    font-size: 0.9rem;
+}
+
+/* Sección Distinciones */
+#distinciones {
+    display: none;
+    background-color: #121212;
+    padding: 60px 20px;
+}
+
+#distinciones.visible {
+    display: block;
+}
+
+.premios-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1050px;
+    margin: 35px auto 0;
+    text-align: left;
+}
+
+.premio-card {
+    background: #1a1a1a;
+    border-left: 4px solid #C9A227;
+    padding: 20px;
+    border-radius: 6px;
+}
+
+.premio-card h3 {
+    color: #C9A227;
+    margin-top: 0;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.premio-card p {
+    color: #cccccc;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+footer {
+    padding: 30px;
+    text-align: center;
+    color: #777777;
+    font-size: 0.9rem;
+}
+
+/* ========================================================
+   DISEÑO RESPONSIVO (Computadoras, Tablets y Celulares)
+   ======================================================== */
+
+/* TABLETS (Pantallas medianas: 601px hasta 991px) */
+@media screen and (max-width: 991px) {
+    section {
+        padding: 45px 20px;
+    }
+
+    .tienda-grid,
+    .premios-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+
+    .explora-card {
+        width: calc(50% - 15px);
+        min-width: 200px;
+    }
+}
+
+/* CELULARES (Pantallas pequeñas: hasta 600px) */
+@media screen and (max-width: 600px) {
+    header {
+        padding: 20px 10px 12px;
+    }
+
+    nav ul {
+        gap: 10px 15px;
+    }
+
+    nav a {
+        font-size: 0.9rem;
+        padding: 5px 8px;
+    }
+
+    section {
+        padding: 35px 15px;
+    }
+
+    .tienda-grid,
+    .premios-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .explora-card {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .bio-texto {
+        font-size: 0.95rem;
+        line-height: 1.65;
+    }
+
+    .producto-img-container {
+        height: 180px;
+    }
+}
